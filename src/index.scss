@@ -1,0 +1,32 @@
+@import url("https://fonts.googleapis.com/css?family=Quicksand");
+
+:root {
+  --color-white-yellow: #ddf8e8;
+  --color-light-green: #a6ede2;
+  --border-blue: #324376;
+  --box-shadow: 2px 2px 2px var(--border-blue), -2px 2px 2px var(--border-blue),
+    -2px -2px 2px var(--border-blue), 2px -2px 2px var(--border-blue);
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+html {
+  box-sizing: border-box;
+  font-size: 62.5%; //1 rem = 10px, 10px/16px
+  background-color: var(--color-white);
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

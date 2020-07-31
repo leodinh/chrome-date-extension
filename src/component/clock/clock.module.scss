@@ -1,0 +1,18 @@
+.clock {
+  max-width: max-content;
+  display: flex;
+  align-items: center;
+  font-family: "Quicksand", sans-serif;
+  .clock_main {
+    flex: 1;
+    font-size: 15rem;
+    font-weight: 500;
+  }
+  .clock_side {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    margin-left: 2rem;
+    font-size: 5rem;
+  }
+}

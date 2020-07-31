@@ -1,24 +1,38 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-
+import React, { useState } from "react";
+import styles from "./App.module.scss";
+import Clock from "./component/clock/clock";
+import Date from "./component/date/date";
+import timezone from "moment-timezone";
 function App() {
+  const [time, setTime] = useState(["--", "--", "--", "--"]);
+  const [date, setDate] = useState("");
+  const updateClock = () => {
+    //let torontoTime = timezonemoment.format("hh mm ss A");
+    let saigonTime = timezone.tz("Asia/Ho_Chi_Minh");
+    setTime(saigonTime.format("hh mm ss A").split(" "));
+    setDate(saigonTime.format("MMMM Do YYYY"));
+  };
+  React.useEffect(() => {
+    updateClock();
+    const runClock = setInterval(() => {
+      updateClock();
+    }, 1000);
+    return () => {
+      clearInterval(runClock);
+    };
+  }, []);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <div className={styles["time"]}>
+        <Clock
+          hour={time[0]}
+          minus={time[1]}
+          second={time[2]}
+          time={time[3]}
+          date={date}
+        />
+        <Date date={date} />
+      </div>
     </div>
   );
 }
