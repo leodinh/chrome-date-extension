@@ -1,0 +1,36 @@
+.button {
+  text-align: center;
+  position: relative;
+  cursor: pointer;
+  img {
+    position: relative;
+    height: 100px;
+    width: 100px;
+    filter: grayscale(100%) contrast(100%);
+    transition: all 0.5s ease-in-out;
+  }
+  .img-to {
+    width: 110px;
+  }
+  p {
+    font-size: 2rem;
+  }
+}
+.button:hover img {
+  transform: translateY(5px);
+}
+.button:active img {
+  top: 3px;
+}
+.button-active img {
+  animation: filterChange 2s forwards;
+}
+
+@keyframes filterChange {
+  0% {
+    filter: grayscale(100%) contrast(100%);
+  }
+  100% {
+    filter: none;
+  }
+}
