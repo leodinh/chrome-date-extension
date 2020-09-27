@@ -23,6 +23,7 @@ function App() {
   const [city, setCity] = useState("TO");
   const [time, setTime] = useState(["--", "--", "--", "--"]);
   const [date, setDate] = useState("");
+  const backgroundStyle = [styles["content"]];
   const updateClock = useCallback((city) => {
     //let torontoTime = timezonemoment.format("hh mm ss A");
     if (city === "TO") {
@@ -46,8 +47,34 @@ function App() {
       clearInterval(runClock);
     };
   }, [city, updateClock]);
+  if (
+    (time[3] === "PM" && parseInt(time[0]) > 7 && parseInt(time[0]) < 12) ||
+    (time[3] === "AM" && (parseInt(time[0]) < 5 || parseInt(time[0]) === 12))
+  ) {
+    backgroundStyle.push(styles["night"]);
+  } else {
+    backgroundStyle.push(styles["day"]);
+  }
   return (
-    <div>
+    <div className={backgroundStyle.join(" ")}>
+      <div className={styles["day_night"]}>
+        <div className={styles["sun"]}></div>
+        <div className={styles["moon"]}>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+        <div className={styles["stars"]}>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+        <div className={styles["water"]}></div>
+      </div>
       <div className={styles["time"]}>
         <div className={styles["time_options"]}>
           {cityInfor.map((item) => (
@@ -70,6 +97,20 @@ function App() {
           date={date}
         />
         <Date date={date} />
+        <div className={styles["favorite-site"]}>
+          <a className={styles["icon"]} href="https://www.facebook.com/">
+            <i className="fab fa-facebook-f"></i>
+          </a>
+          <a className={styles["icon"]} href="https://www.google.com">
+            <i className="fab fa-google"></i>
+          </a>
+          <a className={styles["icon"]} href="https://www.instagram.com">
+            <i className="fab fa-instagram"></i>
+          </a>
+          <a className={styles["icon"]} href="https://www.youtube.com">
+            <i className="fab fa-youtube"></i>
+          </a>
+        </div>
       </div>
     </div>
   );
