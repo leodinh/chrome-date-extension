@@ -21,3 +21,8 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+#key
+build.pem
+build.crx
+node_modules.pem
