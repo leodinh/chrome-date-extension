@@ -1,10 +1,11 @@
-@import url("https://fonts.googleapis.com/css?family=Quicksand");
+@import url('https://fonts.googleapis.com/css?family=Quicksand');
 
 :root {
   --color-white-yellow: #ddf8e8;
   --color-light-green: #a6ede2;
   --border-blue: #324376;
-  --box-shadow: 2px 2px 2px var(--border-blue), -2px 2px 2px var(--border-blue),
+  --box-shadow:
+    2px 2px 2px var(--border-blue), -2px 2px 2px var(--border-blue),
     -2px -2px 2px var(--border-blue), 2px -2px 2px var(--border-blue);
 }
 * {
@@ -25,7 +26,7 @@ html {
 }
 
 body {
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-weight: 400;
   line-height: 1.6;
   height: 100%;
